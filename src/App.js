@@ -1,29 +1,34 @@
-import React from "react";
-import styled from 'styled-components';
-const App =()=>{
-    return(
-    <Contenedor>
-        <Titulo> Lista de Contactos hola mundo
+import React from 'react';
+import {Helmet} from 'react-helmet';
+import {Header, Titulo, ContenedorHeader, ContenedorBotones} from './elementos/Header';
+import Boton from './elementos/Boton';
+import BotonCerrarSesion from './elementos/BotonCerrarSesion';
+import FormularioGasto from './componentes/FormularioGasto';
+import BarraTotalGastado from './componentes/BarraTotalGastado';
 
-        </Titulo>
+const App = () => {
+  return (
+	<>
+		<Helmet>
+			<title>Agregar Gasto</title>
+		</Helmet>
 
-    </Contenedor>
-    );
+		<Header>
+			<ContenedorHeader>
+			<Titulo>Agregar Gasto</Titulo>
+				<ContenedorBotones>
+					<Boton to="/categorias">Categorías</Boton>
+					<Boton to="/lista">Lista de Gastos</Boton>
+					<BotonCerrarSesion />
+				</ContenedorBotones>
+			</ContenedorHeader>
+		</Header>
 
-        
+		<FormularioGasto />
+
+		<BarraTotalGastado />
+	</>
+  );
 }
-
-const Contenedor=styled.div`
-margin: 40px;
-width: 90%;
-max-width:400px;
-background: #fff;
-padding: 40px;
-border-radius: 5px;
-text-align: center;
-`;
-
-const Titulo = styled.h2`
-margin-bottom:10px;
-`;
+ 
 export default App;
